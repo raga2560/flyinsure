@@ -1,5 +1,8 @@
 {
   "name": "flyinsure",
-  "app_id": "",
-  "type": "ionic-angular"
+  "app_id": "509f1998",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }

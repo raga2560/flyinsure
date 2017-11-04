@@ -1,22 +1,38 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar, Splashscreen } from 'ionic-native';
+import firebase from 'firebase';
 
-import { TabsPage } from '../pages/tabs/tabs';
+import { HomePage } from '../pages/home/home';
+
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage = HomePage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
+      StatusBar.styleDefault();
+      Splashscreen.hide();
+
+      const firebaseConfig = {
+      apiKey: "AIzaSyB3uqv_ZDfYd6zJhSRavhQ5IoRiaI8c-Mg",
+						authDomain: "the-deal-maker.firebaseapp.com",
+						databaseURL: "https://the-deal-maker.firebaseio.com",
+						projectId: "the-deal-maker",
+						storageBucket: "the-deal-maker.appspot.com",
+						messagingSenderId: "60029212930"
+
+      };
+	  
+	   
+	
+
+      firebase.initializeApp(firebaseConfig);
     });
   }
 }
