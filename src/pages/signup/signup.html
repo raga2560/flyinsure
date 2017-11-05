@@ -1,0 +1,30 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+		<ion-title>Signup</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="login-page">
+<button ion-button center (click)="signInWithGoogle()">
+    Log In with GooglePlus
+  </button>
+ 
+  <ion-card *ngIf="auth.currentUser" >
+    <img  [src]="auth.currentUser.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" />
+    <ion-card-content>
+      <ion-card-title>
+        {{ auth.currentUserDisplayName }}
+      </ion-card-title>
+ 
+ 
+        The UID for this new user is {{auth.currentUserId}} 
+       
+ 
+    </ion-card-content>
+  </ion-card>
+  
+
+</ion-content>

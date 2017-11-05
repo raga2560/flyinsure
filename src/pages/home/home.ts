@@ -49,6 +49,7 @@ export class HomePage {
     const imageRef = storageRef.child(`images/${filename}.jpg`);
 
     imageRef.putString(this.captureDataUrl, firebase.storage.StringFormat.DATA_URL).then((snapshot)=> {
+		alert(snapshot.downloadURL)
       this.showSuccesfulUploadAlert();
     });
 
