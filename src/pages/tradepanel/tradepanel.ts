@@ -26,6 +26,7 @@ export class TradePanelPage implements OnInit {
   propertyid: string;
   propertycode: string;
   policyissued :string;
+  insuredetail :any;
   insureentry: Insurelist = new Insurelist();
   
   constructor(

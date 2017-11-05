@@ -17,6 +17,7 @@ export class HomePage {
 
   captureDataUrl: string;
   alertCtrl: AlertController;
+  myobj : any;
   
 	
 	insureentry: Insurelist = new Insurelist();
@@ -40,7 +41,7 @@ export class HomePage {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64:
       this.captureDataUrl = 'data:image/jpeg;base64,' + imageData;
-	  alert(this.captureDataUrl);
+	  // alert(this.captureDataUrl);
     }, (err) => {
       // Handle error
 	  alert(err);
@@ -65,10 +66,25 @@ export class HomePage {
     imageRef.putString(this.captureDataUrl, firebase.storage.StringFormat.DATA_URL).then((snapshot)=> {
 		//alert(snapshot.downloadURL);
 		this.insureentry.invoiceimage = snapshot.downloadURL;
-		this.createInsureEntry();
+		// this.createInsureEntry();
+		
+		
       this.showSuccesfulUploadAlert();
     });
 
+  }
+  
+  
+  UpdateInsureEntry() {
+	
+	
+    
+	this.insurelistservice.createInsurelist(this.insureentry);
+	
+	this.goToTradePanel();
+	
+    
+	   
   }
   
   createInsureEntry() {
@@ -91,7 +107,7 @@ export class HomePage {
     alert.present();
 
     // clear the previous photo data in the variable
-    this.captureDataUrl = "";
+   // this.captureDataUrl = "";
   }
 
 
