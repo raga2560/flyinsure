@@ -63,7 +63,8 @@ export class HomePage {
     const imageRef = storageRef.child(`images/${filename}.jpg`);
 
     imageRef.putString(this.captureDataUrl, firebase.storage.StringFormat.DATA_URL).then((snapshot)=> {
-		alert(snapshot.downloadURL);
+		//alert(snapshot.downloadURL);
+		this.insureentry.invoiceimage = snapshot.downloadURL;
 		this.createInsureEntry();
       this.showSuccesfulUploadAlert();
     });
@@ -74,7 +75,7 @@ export class HomePage {
 	
 	
     this.insurelistservice.createInsurelist(this.insureentry);
-	alert('hi');
+	
 	this.goToTradePanel();
 	
     

@@ -25,6 +25,7 @@ export class TradePanelPage implements OnInit {
   sellingprice: any [];
   propertyid: string;
   propertycode: string;
+  policyissued :string;
   insureentry: Insurelist = new Insurelist();
   
   constructor(
@@ -36,11 +37,13 @@ export class TradePanelPage implements OnInit {
 	  
 	//  this.buyingprice = [1500, 1400, 1430];
 	//  this.sellingprice = [1600, 1560, 1700];
+	this.policyissued = null;
 	
   }
   // Thanks to https://davidwalsh.name/array-sort
   
 ngOnInit() {
+	this.policyissued = null;
 	 this.insurelistservice.getInsurelistsList({ limitToFirst: 1, orderByChild: 'invoiceid',
     equalTo: this.navParams.data.invoiceId  }).subscribe(data=> {
 		this.insuredetail = data[0];
@@ -54,23 +57,8 @@ ngOnInit() {
 		this.navCtrl.push(TabsPage);
 	}
 	
-  createInsuranceEntry() {
-	
-	/* UUID.UUID();;
-	consumerid:string;
-  validatorid:string;
-  invoiceid:string;
-  invoiceimage:string;
-  billamount: number;
-  insuranceamt: number;
-  insurepremium: number;
-  */
-	//this.insureentry.invoiceid =  this.property.propertycode;
-	//this.insureentry.invoiceimage = 'http://wwjjw.com';
-    //this.insurelistservice.createInsurelist(this.insureentry);
-	
-    
-	   
+  buyinsurance (company, amt) {
+	  this.policyissued = UUID.UUID();
   }
 
   
