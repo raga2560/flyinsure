@@ -7,6 +7,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { SignupPage } from '../pages/signup/signup';
+import { TradePanelPage } from '../pages/tradepanel/tradepanel';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -35,6 +36,7 @@ const firebaseConfig = {
     MyApp,
     AboutPage,
     ContactPage,
+	TradePanelPage,
 	SignupPage,
     HomePage,
     TabsPage
@@ -43,7 +45,12 @@ const firebaseConfig = {
     BrowserModule,
 	
 	AngularFireModule.initializeApp(firebaseConfig),
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {},{
+	links: [
+        { component: TradePanelPage, name: 'TradePanel', segment: 'tradepanel/:invoiceId' }
+        
+      ]
+	}),
 	IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -53,6 +60,7 @@ const firebaseConfig = {
     ContactPage,
 	SignupPage,
     HomePage,
+	TradePanelPage,
     TabsPage
   ],
   providers: [

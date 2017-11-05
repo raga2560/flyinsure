@@ -4,9 +4,11 @@ export class Insurelist {
   validatorid:string;
   invoiceid:string;
   invoiceimage:string;
+  invoicedesc:string;
   billamount: number;
   insuranceamt: number;
   insurepremium: number;
+  insureprovider: string;
   premiumpaid: false;
   decision: string; // pending,issued, refused, expired
   paidtimeStamp: number;

@@ -3,6 +3,9 @@ import firebase from 'firebase';
 
 import { NavController, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from 'ionic-native';
+import { TradePanelPage } from '../tradepanel/tradepanel';
+import { InsurelistService } from '../../providers/insurelist.service';
+import { Insurelist } from '../../pages/transaction-shared/insurelist';
 
 
 @Component({
@@ -14,8 +17,14 @@ export class HomePage {
 
   captureDataUrl: string;
   alertCtrl: AlertController;
+  
+	
+	insureentry: Insurelist = new Insurelist();
+  
 
-  constructor(public navCtrl: NavController, alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, alertCtrl: AlertController,
+  public insurelistservice: InsurelistService
+  ) {
     this.alertCtrl = alertCtrl;
   }
 
@@ -38,6 +47,11 @@ export class HomePage {
     });
   }
   
+   goToTradePanel() {
+	//  alert(JSON.stringify(property));
+    this.navCtrl.push(TradePanelPage, { invoiceId: this.insureentry.invoiceid});
+  }
+  
   
   upload() {
 	
@@ -49,10 +63,22 @@ export class HomePage {
     const imageRef = storageRef.child(`images/${filename}.jpg`);
 
     imageRef.putString(this.captureDataUrl, firebase.storage.StringFormat.DATA_URL).then((snapshot)=> {
-		alert(snapshot.downloadURL)
+		alert(snapshot.downloadURL);
+		this.createInsureEntry();
       this.showSuccesfulUploadAlert();
     });
 
+  }
+  
+  createInsureEntry() {
+	
+	
+    this.insurelistservice.createInsurelist(this.insureentry);
+	alert('hi');
+	this.goToTradePanel();
+	
+    
+	   
   }
 
   showSuccesfulUploadAlert() {

@@ -33,7 +33,7 @@ export class MyApp {
 	   
 	
 
-      firebase.initializeApp(firebaseConfig);
+    //  firebase.initializeApp(firebaseConfig);
     });
   }
 }

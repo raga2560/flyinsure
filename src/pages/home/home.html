@@ -14,7 +14,7 @@
         <ion-col col-12 col-md-6 align-self-stretch align-self-center  approxItemHeight="457px">
 
 		<button ion-button block (click)="capture()">Take picture of invoice</button>
-		<button ion-button block (click)="upload()" >Get quote of Insurance</button>
+		
 		
           <ion-card class="property-card">
             <ion-card-header>
@@ -29,7 +29,7 @@
     
 
     <button ion-button (click)="upload()" *ngIf="captureDataUrl">Upload Invoice</button>
-	
+
 	
     
 	
@@ -43,15 +43,20 @@
 			<label> Enter Description of item: </label>
 			</ion-item>
 			<ion-item>
-			<textarea> </textarea>   
+			<textarea  [(ngModel)]="insureentry.invoicedesc" > </textarea>   
 			</ion-item>
-                <button ion-button block (click)="goToTradePanel(propertydetail)">
-                  <h3>Buy Insurance</h3>
-                </button>
-				<button  ion-button block (click)="goToTradePanel(propertydetail)">
-                  <h3>Dismiss Insurance</h3>
-                </button>
-                
+			<ion-item>
+				 <ion-input type="number" placeholder="Bill amount" [(ngModel)]="insureentry.billamount" > </ion-input>
+			</ion-item>
+			<ion-item>
+				 <ion-input type="number" placeholder="Amount of insurance" [(ngModel)]="insureentry.insuranceamt" > </ion-input>
+			</ion-item>
+			<ion-item>
+				  <ion-input  placeholder="Invoice id" [(ngModel)]="insureentry.invoiceid"> </ion-input>  
+			</ion-item>
+			
+			<button ion-button block (click)="createInsureEntry()" > Create Insurance Entry(testing)</button>        
+        <button ion-button block (click)="goToTradePanel()" >Get quote of Insurance</button>        
               </ion-list>
             </ion-card-content>
 
