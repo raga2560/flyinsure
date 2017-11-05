@@ -13,7 +13,14 @@
   </button>
  
   <ion-card *ngIf="auth.currentUser" >
+  <ion-card-header>
+  <ion-avatar item-start>
     <img  [src]="auth.currentUser.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" />
+				  
+                </ion-avatar> hello
+				
+	</ion-card-header>
+    
     <ion-card-content>
       <ion-card-title>
         {{ auth.currentUserDisplayName }}
