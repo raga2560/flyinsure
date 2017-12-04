@@ -20,7 +20,7 @@ export class HomePage {
   myobj : any;
   
 	
-	insureentry: Insurelist = new Insurelist();
+  insureentry: Insurelist = new Insurelist();
   
 
   constructor(public navCtrl: NavController, alertCtrl: AlertController,
@@ -64,12 +64,10 @@ export class HomePage {
     const imageRef = storageRef.child(`images/${filename}.jpg`);
 
     imageRef.putString(this.captureDataUrl, firebase.storage.StringFormat.DATA_URL).then((snapshot)=> {
-		//alert(snapshot.downloadURL);
+	
 		this.insureentry.invoiceimage = snapshot.downloadURL;
-		// this.createInsureEntry();
 		
-		
-      this.showSuccesfulUploadAlert();
+		this.showSuccesfulUploadAlert();
     });
 
   }
@@ -77,13 +75,9 @@ export class HomePage {
   
   UpdateInsureEntry() {
 	
-	
-    
 	this.insurelistservice.createInsurelist(this.insureentry);
 	
 	this.goToTradePanel();
-	
-    
 	   
   }
   

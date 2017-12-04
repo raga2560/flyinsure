@@ -13,12 +13,15 @@
 
         <ion-col col-12 col-md-6 align-self-stretch align-self-center  approxItemHeight="457px">
 
-		<button ion-button block (click)="capture()">Take picture of invoice</button>
+		
 		
 		
           <ion-card class="property-card">
+		  
             <ion-card-header>
-			
+			<ion-list-header color="primary">
+				<ion-label> Get Insurance on invoice </ion-label>			
+			</ion-list-header>
                 <ion-thumbnail item-start>
                   <img [src]="captureDataUrl"  />
 				  
@@ -40,7 +43,7 @@
 			
               <ion-list>
 			   <ion-item>
-			<label> Enter Description of item: </label>
+			<ion-label> Enter Description of item to take insurance: </ion-label>
 			</ion-item>
 			<ion-item>
 			<textarea  [(ngModel)]="insureentry.invoicedesc" > </textarea>   
@@ -56,6 +59,7 @@
 			</ion-item>
 			
 			<!-- button ion-button block (click)="createInsureEntry()" > Create Insurance Entry(testing)</button -->        
+			<button ion-button block (click)="capture()">Take picture of invoice</button>
         <button ion-button block (click)="UpdateInsureEntry()" >Get quote of Insurance</button>        
               </ion-list>
             </ion-card-content>

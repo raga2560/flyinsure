@@ -20,11 +20,6 @@ import { TabsPage } from '../tabs/tabs';
 // https://angular.io/api/common/SlicePipe  Used in HTML
 
 export class TradePanelPage implements OnInit {
- homeowneraccount: any;
-  buyingprice: any [];
-  sellingprice: any [];
-  propertyid: string;
-  propertycode: string;
   policyissued :string;
   insuredetail :any;
   insureentry: Insurelist = new Insurelist();
@@ -36,8 +31,6 @@ export class TradePanelPage implements OnInit {
 	public insurelistservice: InsurelistService
   ) {
 	  
-	//  this.buyingprice = [1500, 1400, 1430];
-	//  this.sellingprice = [1600, 1560, 1700];
 	this.policyissued = null;
 	
   }
@@ -54,41 +47,29 @@ ngOnInit() {
 
 	}
 		
-	canceloffer() {
+	canceloffer() {  // (2)
 		this.navCtrl.push(TabsPage);
 	}
 	
-  buyinsurance (company, amt) {
-	  this.policyissued = UUID.UUID();
+  buyinsurance (company, amt) {   // (1)
+	  var offer = {
+		  
+	  };
+	  /*
+	  //this.requestid = UUID.UUID();
+	  
+	  this.insurelistservice.buyInsurance(offer).subscribe(data=> {
+		this.policyissued = data[0];
+		// alert(JSON.stringify(this.propertydetail));
+	});
+	  */
   }
 
   
 
   ionViewWillEnter() {
 	  
-	  //this.buyingprice = [1500, 1400, 1430];
-	  //this.sellingprice = [1600, 1560, 1700];
-	  
-	  	 
-    /* this.dataProvider.load().subscribe((data: any) => {
-      if (
-        data &&
-        data.schedule &&
-        data.schedule[0] &&
-        data.schedule[0].groups
-      ) {
-        for (const group of data.schedule[0].groups) {
-          if (group && group.sessions) {
-            for (const session of group.sessions) {
-              if (session && session.id === this.navParams.data.sessionId) {
-                this.session = session;
-                break;
-              }
-            }
-          }
-        }
-      }
-    }); */
+	
   }
   
   
