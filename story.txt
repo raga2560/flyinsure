@@ -1,0 +1,16 @@
+
+testcase ionic
+
+Insurance story  <-----------> firebase(2) , mongo(43)
+-Takes image of invoice
+-Type of insurance (50)
+-Amt
+-Inv amt
+
+User rating <------------> backend <---------> insurer app
+- insurer
+- central 
+
+automated-server <----> backend <---> using user rating
+- gives quote
+

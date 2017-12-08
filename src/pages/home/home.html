@@ -19,8 +19,8 @@
           <ion-card class="property-card">
 		  
             <ion-card-header>
-			<ion-list-header color="primary">
-				<ion-label> Get Insurance on invoice </ion-label>			
+			<ion-list-header color="primary" center>
+				<ion-title> APP TO GET INSURANCE ON INVOICE </ion-title>			
 			</ion-list-header>
                 <ion-thumbnail item-start>
                   <img [src]="captureDataUrl"  />
@@ -43,18 +43,21 @@
 			
               <ion-list>
 			   <ion-item>
-			<ion-label> Enter Description of item to take insurance: </ion-label>
+			   <ion-label color="primary" stacked large>Item to take Insurance</ion-label>
+				<ion-textarea placeholder="Enter Description"  [(ngModel)]="insureentry.invoicedesc" > </ion-textarea>   
+			
 			</ion-item>
+			
 			<ion-item>
-			<textarea  [(ngModel)]="insureentry.invoicedesc" > </textarea>   
-			</ion-item>
-			<ion-item>
+			   <ion-label color="primary" >Enter</ion-label>
 				 <ion-input type="number" placeholder="Bill amount" [(ngModel)]="insureentry.billamount" > </ion-input>
 			</ion-item>
 			<ion-item>
+			<ion-label color="primary" >Enter</ion-label>
 				 <ion-input type="number" placeholder="Amount of insurance" [(ngModel)]="insureentry.insuranceamt" > </ion-input>
 			</ion-item>
 			<ion-item>
+			<ion-label color="primary" >Enter</ion-label>
 				  <ion-input  placeholder="Invoice id" [(ngModel)]="insureentry.invoiceid"> </ion-input>  
 			</ion-item>
 			

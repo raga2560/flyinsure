@@ -16,6 +16,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AuthService } from '../providers/auth.service';
 import { InsurelistService } from '../providers/insurelist.service';
+import { FireInsurelistService } from '../providers/fireinsurelist';
+
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UserData } from '../providers/user-data';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -68,6 +70,7 @@ const firebaseConfig = {
     SplashScreen,
 	UserData,
 	InsurelistService,
+	FireInsurelistService,
 	AuthService,
 	AngularFireAuth,
 	AngularFireDatabase,

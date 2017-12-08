@@ -1,72 +1,50 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Insurelist } from '../pages/transaction-shared/insurelist';
+import {FireInsurelistService} from './fireinsurelist';
 
+import { environment } from '../config/environment';
 
+let storage = environment.storage;
+
+// Core
 
 
 
 @Injectable()
 export class InsurelistService {
 
-  private basePath = '/insurelists';
-
-  insurelists: FirebaseListObservable<Insurelist[]> ; //= null; //  list of objects
-  insurelist: FirebaseObjectObservable<Insurelist> ; // = null; //   single object
   
 
-  constructor(private db: AngularFireDatabase ) { 
-	  this.insurelists = this.db.list('/insurelists', {
-      query: {}
-    });
+  constructor(private fire: FireInsurelistService ) { 
+  
+	  
   }
 
 
   // Return an observable list with optional query
   // You will usually call this from OnInit in a component
-  getInsurelistsList(query = {}): FirebaseListObservable<Insurelist[]> {
-    this.insurelists = this.db.list('/insurelists', {
-      query: query
-    });
-    return this.insurelists
-  }
-
-  // Return a single observable insurelist
-  getInsurelist(key: string): FirebaseObjectObservable<Insurelist> {
-    const insurelistPath = `${this.basePath}/${key}`;
-    this.insurelist = this.db.object(insurelistPath)
-    return this.insurelist
+  getInsurelistsList(): any {
+    return fire.getInsurelistsList (query);
   }
   
+  getInsurelist(query): any {
+    return fire.getInsurelist (query);
+  }
   
-
-  // Create a bramd new insurelist
-  createInsurelist(insurelist: Insurelist): void {
-    this.insurelists.push(insurelist)
-      .catch(error => this.handleError(error))
+  createInsurelist(query ): any {
+    return fire.createInsurelist (query);
   }
-
-
+   updateInsurelist(query): any {
+    return fire.updateInsurelist (query);
+  }
+   deleteInsurelist(query): any {
+    return fire.deleteInsurelist (query);
+  }
+  deleteAll(query): any {
+    return fire.deleteAll (query);
+  }
   
-  
-  // Update an exisiting insurelist
-  updateInsurelist(key: string, value: any): void {
-    this.insurelists.update(key, value)
-      .catch(error => this.handleError(error))
-  }
-
-  // Deletes a single insurelist
-  deleteInsurelist(key: string): void {
-    this.insurelists.remove(key)
-      .catch(error => this.handleError(error))
-  }
-
-  // Deletes the entire list of insurelist
-  deleteAll(): void {
-    this.insurelists.remove()
-      .catch(error => this.handleError(error))
-  }
-
 
   // Default error handling for all actions
   private handleError(error:any) {
