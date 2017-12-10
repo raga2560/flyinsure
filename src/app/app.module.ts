@@ -17,6 +17,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AuthService } from '../providers/auth.service';
 import { InsurelistService } from '../providers/insurelist.service';
 import { FireInsurelistService } from '../providers/fireinsurelist';
+import { MongoService } from '../providers/mongoservice';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UserData } from '../providers/user-data';
@@ -70,6 +71,7 @@ const firebaseConfig = {
     SplashScreen,
 	UserData,
 	InsurelistService,
+	MongoService,
 	FireInsurelistService,
 	AuthService,
 	AngularFireAuth,

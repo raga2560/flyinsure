@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Insurelist } from '../pages/transaction-shared/insurelist';
 import {FireInsurelistService} from './fireinsurelist';
+import {MongoService} from './mongoservice';
 
 import { environment } from '../config/environment';
 
@@ -16,7 +17,8 @@ export class InsurelistService {
 
   
 
-  constructor(private fire: FireInsurelistService ) { 
+  constructor(private fire: FireInsurelistService,
+		 private mongo: MongoService ) { 
   
 	  
   }
