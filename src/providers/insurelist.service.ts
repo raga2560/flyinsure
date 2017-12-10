@@ -24,25 +24,25 @@ export class InsurelistService {
 
   // Return an observable list with optional query
   // You will usually call this from OnInit in a component
-  getInsurelistsList(): any {
-    return fire.getInsurelistsList (query);
+  getInsurelistsList(query): any {
+    return this.fire.getInsurelistsList (query);
   }
   
   getInsurelist(query): any {
-    return fire.getInsurelist (query);
+    return this.fire.getInsurelist (query);
   }
   
   createInsurelist(query ): any {
-    return fire.createInsurelist (query);
+    return this.fire.createInsurelist (query);
   }
-   updateInsurelist(query): any {
-    return fire.updateInsurelist (query);
+   updateInsurelist(query, val): any {
+    return this.fire.updateInsurelist (query, val);
   }
    deleteInsurelist(query): any {
-    return fire.deleteInsurelist (query);
+    return this.fire.deleteInsurelist (query);
   }
-  deleteAll(query): any {
-    return fire.deleteAll (query);
+  deleteAll(): any {
+    return this.fire.deleteAll ();
   }
   
 

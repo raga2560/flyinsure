@@ -15,7 +15,7 @@ export const environment = {
 		
 	},
 	insurancerec: {
-		type:'single'  // single, daily, sizelimit, parallel
+		type:'single',  // single, daily, sizelimit, parallel
 		sizelimit: 10000,   // applicable for sizelimit, parallel
 		parallelnumber: 4   // number of parallel
 	},
