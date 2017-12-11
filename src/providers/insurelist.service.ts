@@ -29,25 +29,78 @@ export class InsurelistService {
   // Return an observable list with optional query
   // You will usually call this from OnInit in a component
   getInsurelistsList(query): any {
-    // return this.fire.getInsurelistsList (query);
-    return this.mongo.getInsurelistsList (query);
+    if(query.type == 'first') {
+      if(storage == 'mongo')
+      {
+          return this.mongo.getInsurelistsList (query.data);
+      }
+      else 
+      {
+           return this.fire.getInsurelistsList (query.data);
+      }
+    }
   }
   
-  getInsurelist(query): any {
-    return this.fire.getInsurelist (query);
+  getInsurelist(key): any {
+      if(storage == 'mongo')
+      {
+         return this.mongo.getInsurelist (key);
+      }
+      else 
+      {
+         return this.fire.getInsurelist (key);
+      }
   }
   
-  createInsurelist(query ): any {
-    return this.fire.createInsurelist (query);
+  createInsurelist(passeddata ): any {
+    if(passeddata.type == 'simple')
+    {
+      if(storage == 'mongo')
+      {
+         return this.mongo.createInsurelist (passeddata.data);
+      }
+      else 
+      {
+         return this.fire.createInsurelist (passeddata.data);
+      }
+    }
   }
-   updateInsurelist(query, val): any {
-    return this.fire.updateInsurelist (query, val);
+   updateInsurelist(key, passeddata): any {
+    if(passeddata.type == 'simple')
+    {  
+      if(storage == 'mongo')
+      {
+         return this.mongo.updateInsurelist (key, passeddata.data);
+      }
+      else 
+      {
+         return this.fire.updateInsurelist (key, passeddata.data);
+      }
+    }
   }
-   deleteInsurelist(query): any {
-    return this.fire.deleteInsurelist (query);
+   deleteInsurelist(key): any {
+      if(storage == 'mongo')
+      {
+         return this.mongo.deleteInsurelist (key);
+      }
+      else 
+      {
+         return this.fire.deleteInsurelist (key);
+      }
   }
   deleteAll(): any {
-    return this.fire.deleteAll ();
+	
+    if(passeddata.type == 'simple')
+    {  
+      if(storage == 'mongo')
+      {
+        return this.mongo.deleteAll ();
+      }
+      else
+      {
+        return this.fire.deleteAll ();
+      }
+    } 
   }
   
 

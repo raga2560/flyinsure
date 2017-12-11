@@ -74,8 +74,11 @@ export class HomePage {
   
   
   UpdateInsureEntry() {
-	
-	this.insurelistservice.createInsurelist(this.insureentry);
+        var passingdata = {
+		type:'simple',
+		data : this.insureentry
+        };	
+	this.insurelistservice.createInsurelist(passingdata);
 	
 	this.goToTradePanel();
 	   
@@ -83,8 +86,12 @@ export class HomePage {
   
   createInsureEntry() {
 	
+        var passingdata = {
+		type:'simple',
+		data : this.insureentry
+        };	
 	
-    this.insurelistservice.createInsurelist(this.insureentry);
+    this.insurelistservice.createInsurelist(passingdata);
 	
 	this.goToTradePanel();
 	

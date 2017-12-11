@@ -38,12 +38,18 @@ export class TradePanelPage implements OnInit {
   
 ngOnInit() {
 	this.policyissued = null;
-	 this.insurelistservice.getInsurelistsList({ limitToFirst: 1, orderByChild: 'invoiceid',
-    equalTo: this.navParams.data.invoiceId  }).subscribe(data=> {
+	 var querydata = {
+		type : 'first',
+		data: { limitToFirst: 1, orderByChild: 'invoiceid',
+                equalTo: this.navParams.data.invoiceId  }
+            };
+	 this.insurelistservice.getInsurelistsList(querydata,
+         ).subscribe(data=> {
 		this.insuredetail = data[0];
-		 alert(JSON.stringify(this.insuredetail));
+		 alert(JSON.stringify(data));
 	});
 	
+/*    // equalTo: this.navParams.data.invoiceId    */
 
 	}
 		
