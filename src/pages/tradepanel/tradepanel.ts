@@ -41,7 +41,7 @@ ngOnInit() {
 	 this.insurelistservice.getInsurelistsList({ limitToFirst: 1, orderByChild: 'invoiceid',
     equalTo: this.navParams.data.invoiceId  }).subscribe(data=> {
 		this.insuredetail = data[0];
-		// alert(JSON.stringify(this.propertydetail));
+		 alert(JSON.stringify(this.insuredetail));
 	});
 	
 

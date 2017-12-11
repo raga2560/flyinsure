@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Insurelist } from '../pages/transaction-shared/insurelist';
 import {FireInsurelistService} from './fireinsurelist';
+import {MongoInsurelistService} from './mongoinsurelist';
 import {MongoService} from './mongoservice';
 
 import { environment } from '../config/environment';
@@ -18,7 +19,8 @@ export class InsurelistService {
   
 
   constructor(private fire: FireInsurelistService,
-		 private mongo: MongoService ) { 
+		 private mongo: MongoInsurelistService 
+) { 
   
 	  
   }
@@ -27,7 +29,8 @@ export class InsurelistService {
   // Return an observable list with optional query
   // You will usually call this from OnInit in a component
   getInsurelistsList(query): any {
-    return this.fire.getInsurelistsList (query);
+    // return this.fire.getInsurelistsList (query);
+    return this.mongo.getInsurelistsList (query);
   }
   
   getInsurelist(query): any {

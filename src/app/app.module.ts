@@ -17,6 +17,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AuthService } from '../providers/auth.service';
 import { InsurelistService } from '../providers/insurelist.service';
 import { FireInsurelistService } from '../providers/fireinsurelist';
+import { MongoInsurelistService } from '../providers/mongoinsurelist';
 import { MongoService } from '../providers/mongoservice';
 
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -73,6 +74,7 @@ const firebaseConfig = {
 	InsurelistService,
 	MongoService,
 	FireInsurelistService,
+	MongoInsurelistService,
 	AuthService,
 	AngularFireAuth,
 	AngularFireDatabase,
