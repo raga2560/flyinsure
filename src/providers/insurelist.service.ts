@@ -32,7 +32,8 @@ export class InsurelistService {
     if(query.type == 'first') {
       if(storage == 'mongo')
       {
-          return this.mongo.getInsurelistsList (query.data);
+	  var data = {};
+          return this.mongo.getInsurelistsList (data);
       }
       else 
       {
