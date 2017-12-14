@@ -22,8 +22,8 @@ export class MongoInsurelistService {
   socket:any;  
   observer:Observer<any>;  
 
-  insurelists: Observable<Insurelist[]> ; //= null; //  list of objects
-  insurelist: Observable<Insurelist> ; // = null; //   single object
+  insurelists: Observer<Insurelist[]> ; //= null; //  list of objects
+  insurelist: Observer<Insurelist> ; // = null; //   single object
 
 /*
   constructor( ) { 
@@ -103,7 +103,7 @@ export class MongoInsurelistService {
     });
 
     this.socket.emit('get', datatoget);
-    return this.createObservable();
+    return this.getObservable();
   }
 
 
@@ -122,7 +122,7 @@ export class MongoInsurelistService {
   // Deletes a single insurelist
   deleteInsurelist(key: string): void {
     var datatodelete = {
-	_id : string
+	_id : key
     };
     this.socket.emit('remove', datatodelete);
   }

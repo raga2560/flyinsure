@@ -8,6 +8,9 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { SignupPage } from '../pages/signup/signup';
 import { TradePanelPage } from '../pages/tradepanel/tradepanel';
+import { UserPage } from '../pages/userdata/userdata';
+import { InsureDetailPage } from '../pages/insuredetail/insuredetail';
+import { InsuranceListPage } from '../pages/insurelist/insurelist';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -41,6 +44,9 @@ const firebaseConfig = {
     AboutPage,
     ContactPage,
 	TradePanelPage,
+	InsuranceListPage,
+	InsureDetailPage,
+	UserPage,
 	SignupPage,
     HomePage,
     TabsPage
@@ -51,7 +57,13 @@ const firebaseConfig = {
 	AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp, {},{
 	links: [
-        { component: TradePanelPage, name: 'TradePanel', segment: 'tradepanel/:invoiceId' }
+        { 
+//component: InsuranceListPage, name: 'InsuranceList', segment: 'insurancelist/:insureId',
+// component: InsureDetailPage, name: 'InsureDetail', segment: 'insuredetail',
+//component: UserPage, name: 'UserPage', segment: 'userdata',
+component: TradePanelPage, name: 'TradePanel', segment: 'tradepanel/:invoiceId' 
+
+}
         
       ]
 	}),
@@ -65,6 +77,9 @@ const firebaseConfig = {
 	SignupPage,
     HomePage,
 	TradePanelPage,
+	InsuranceListPage,
+	InsureDetailPage,
+	UserPage,
     TabsPage
   ],
   providers: [

@@ -9,17 +9,17 @@ import { TabsPage } from '../tabs/tabs';
 
 @IonicPage({
 
-  segment: 'tradepanel/:invoiceId'
+  segment: 'userdata'
 })
 
 @Component({
-  selector: 'tradepanel',
-  templateUrl: 'tradepanel.html'
+  selector: 'userdata',
+  templateUrl: 'userdata.html'
 })
 
 // https://angular.io/api/common/SlicePipe  Used in HTML
 
-export class TradePanelPage implements OnInit {
+export class UserPage implements OnInit {
   policyissued :string;
   insuredetail :any;
   insureentry: Insurelist = new Insurelist();

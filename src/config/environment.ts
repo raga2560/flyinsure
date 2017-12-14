@@ -11,7 +11,7 @@ export const environment = {
     },
 	storage: 
 	{
-		type: 'firebase'  // firebase, mongodb, aws
+		type: 'mongo'  // firebase, mongo, aws
 		
 	},
 	insurancerec: {

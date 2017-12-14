@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title > Insurance Details of User </ion-title>
+	<button ion-button (click)="canceloffer()">Cancel</button>
+  </ion-navbar>
+  
+</ion-header>
+
+
+
+
+<ion-content padding>
+
+
+<ion-grid *ngIf="policyissued">
+  <ion-row>
+    <ion-col col-12 col-sm-9 col-md-6 col-lg-6 col-xl-6>
+     <ion-list>
+	
+	<ion-list-header color="light">
+	Bank ABC Policy   
+	</ion-list-header>
+
+
+	<div *ngIf="insuredetail">
+	  <ion-item  >
+   <ion-label  stacked> Invoice Id: {{insuredetail.invoiceid}} </ion-label>  
+  </ion-item>
+<ion-item  >
+   <ion-label  stacked> Bill Amount: {{insuredetail.billamount}} </ion-label>  
+  </ion-item>
+  </div>
+  <div>
+  <ion-item  >
+   <ion-label color="primary" stacked>Offer price: 1200  Rs </ion-label>  
+  </ion-item>
+  </div>
+  <ion-item>
+  <ion-label color="primary" stacked> Policy issued : {{policyissued}} </ion-label>  
+  </ion-item>
+  
+  </ion-list>
+  
+    </ion-col>
+</ion-row>	
+</ion-grid>
+	
+  <ion-grid *ngIf="policyissued == null">
+  <ion-row>
+    <ion-col col-12 col-sm-9 col-md-6 col-lg-6 col-xl-6>
+     <ion-list>
+	
+	<ion-list-header color="light">
+	Bank ABC quote   
+	</ion-list-header>
+
+
+	<div *ngIf="insuredetail">
+	  <ion-item  >
+   <ion-label  stacked> Invoice Id: {{insuredetail.invoiceid}} </ion-label>  
+  </ion-item>
+<ion-item  >
+   <ion-label  stacked> Bill Amount: {{insuredetail.billamount}} </ion-label>  
+  </ion-item>
+  </div>
+  <div>
+  <ion-item  >
+   <ion-label color="primary" stacked>Offer price: 1200  Rs </ion-label>  
+  </ion-item>
+  </div>
+  <ion-item>
+<button ion-button block (click)="buyinsurance('abc', 1200)">Buy Insurance</button>
+  </ion-item>
+  
+  </ion-list>
+  
+    </ion-col>
+	<ion-col col-12 col-sm-9 col-md-6 col-lg-6 col-xl-6>
+     <ion-list>
+	
+	<ion-list-header color="light">
+	Bank DCB quote   
+	</ion-list-header>
+
+	<div *ngIf="insuredetail">
+	  <ion-item  >
+   <ion-label  stacked> Invoice Id: {{insuredetail.invoiceid}} </ion-label>  
+  </ion-item>
+<ion-item  >
+   <ion-label  stacked> Bill Amount: {{insuredetail.billamount}} </ion-label>  
+  </ion-item>
+  </div>
+
+	<div >
+  <ion-item  >
+   <ion-label color="primary" stacked>Offer price: 1500  Rs </ion-label>  
+  </ion-item>
+  </div>
+  <ion-item>
+<button ion-button block (click)="buyinsurance('dcb', 1500)">Buy Insurance</button>
+  </ion-item>
+  
+  </ion-list>
+  
+  
+    </ion-col>
+	
+     
+	 
+	 
+    
+  </ion-row>
+  
+  
+  
+</ion-grid>
+
+</ion-content>

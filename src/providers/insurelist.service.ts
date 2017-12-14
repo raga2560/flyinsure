@@ -7,7 +7,7 @@ import {MongoService} from './mongoservice';
 
 import { environment } from '../config/environment';
 
-let storage = environment.storage;
+let storage = environment.storage.type;
 
 // Core
 
@@ -91,8 +91,6 @@ export class InsurelistService {
   }
   deleteAll(): any {
 	
-    if(passeddata.type == 'simple')
-    {  
       if(storage == 'mongo')
       {
         return this.mongo.deleteAll ();
@@ -101,7 +99,6 @@ export class InsurelistService {
       {
         return this.fire.deleteAll ();
       }
-    } 
   }
   
 
