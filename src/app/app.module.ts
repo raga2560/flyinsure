@@ -58,9 +58,9 @@ const firebaseConfig = {
     IonicModule.forRoot(MyApp, {},{
 	links: [
         { 
-//component: InsuranceListPage, name: 'InsuranceList', segment: 'insurancelist/:insureId',
-// component: InsureDetailPage, name: 'InsureDetail', segment: 'insuredetail',
-//component: UserPage, name: 'UserPage', segment: 'userdata',
+component: InsuranceListPage, name: 'InsuranceList', segment: 'insurancelist',
+ component: InsureDetailPage, name: 'InsureDetail', segment: 'insuredetail',
+component: UserPage, name: 'UserPage', segment: 'userdata',
 component: TradePanelPage, name: 'TradePanel', segment: 'tradepanel/:invoiceId' 
 
 }

@@ -9,11 +9,11 @@ import { TabsPage } from '../tabs/tabs';
 
 @IonicPage({
 
-  segment: 'insurancelist/:insureId'
+  segment: 'insurancelist'
 })
 
 @Component({
-  selector: 'insurancelist',
+  selector: 'page-insure-list',
   templateUrl: 'insurelist.html'
 })
 
@@ -23,6 +23,7 @@ export class InsuranceListPage implements OnInit {
   policyissued :string;
   insuredetail :any;
   insureentry: Insurelist = new Insurelist();
+  insurances: any[] = [];
   
   constructor(
     public navCtrl: NavController,
@@ -43,7 +44,7 @@ ngOnInit() {
 		data: { limitToFirst: 1, orderByChild: 'invoiceid',
                 equalTo: this.navParams.data.invoiceId  }
             };
-	 this.insurelistservice.getInsurelistsList(querydata,
+	 this.insurelistservice.getInsurelistsList(querydata
          ).subscribe(data=> {
 		this.insuredetail = data[0];
 		 alert(JSON.stringify(data));
@@ -52,6 +53,18 @@ ngOnInit() {
 /*    // equalTo: this.navParams.data.invoiceId    */
 
 	}
+	
+	ionViewDidLoad() {
+		var querydata = {
+		type : 'first',
+		data: { limitToFirst: 1, orderByChild: 'invoiceid',
+                equalTo: this.navParams.data.invoiceId  }
+            };
+    this.insurelistservice.getInsurelistsList(querydata).subscribe((insurances: any[]) => {
+      this.insurances = insurances;
+    });
+  }
+
 		
 	canceloffer() {  // (2)
 		this.navCtrl.push(TabsPage);
