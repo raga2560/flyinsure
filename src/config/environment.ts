@@ -27,6 +27,15 @@ export const environment = {
 		sizelimit: 10000,   // applicable for sizelimit, parallel
 		parallelnumber: 4   // number of parallel
 	},
+	views :{
+		insurancelist: {
+			
+		},
+		insurancedetail: {
+			invoice: true
+		}
+		
+	},
 	blockchain : {
 		type: 'none' // multichain, hyperledger
 	},

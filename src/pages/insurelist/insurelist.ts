@@ -4,8 +4,12 @@ import { SlicePipe } from '@angular/common';
 import { AuthService } from '../../providers/auth.service';
 import { InsurelistService } from '../../providers/insurelist.service';
 import { Insurelist } from '../../pages/transaction-shared/insurelist';
+import { InsureDetailPage } from '../../pages/insuredetail/insuredetail';
 import { UUID } from 'angular2-uuid';
 import { TabsPage } from '../tabs/tabs';
+import { environment } from '../../config/environment';
+
+let storage = environment.storage.type;
 
 @IonicPage({
 
@@ -64,7 +68,18 @@ ngOnInit() {
       this.insurances = insurances;
     });
   }
-
+ goToInsureDetail(insurance: any) {
+	//  alert(JSON.stringify(property));
+	alert('hi');
+    this.navCtrl.push(InsureDetailPage, { insureId: this.getkeyforplatform(insurance)});
+  }
+  getkeyforplatform(rec:any){
+	  
+	  if(storage == 'mongo') {
+	  // for mongo
+	  return rec._id;
+	  }
+  }
 		
 	canceloffer() {  // (2)
 		this.navCtrl.push(TabsPage);

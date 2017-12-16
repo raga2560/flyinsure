@@ -39,6 +39,16 @@ export class InsurelistService {
       {
            return this.fire.getInsurelistsList (query.data);
       }
+    } else  if(query.type == 'firstbyid') {
+      if(storage == 'mongo')
+      {
+	  var data = {_id: query.id};
+          return this.mongo.getInsurelistsList (data);
+      }
+      else 
+      {
+           return this.fire.getInsurelistsList (query.data);
+      }
     }
   }
   
