@@ -9,8 +9,11 @@ import { Insurelist } from '../pages/transaction-shared/insurelist';
 import * as io from 'socket.io-client';
 
 let storage = environment.storage;
-//let tableName = environment.insurancerec.singlerec.insurancelist;
-// Core
+
+
+
+let insurerectype = environment.insurancerec.type;
+
 
 
 
@@ -18,6 +21,7 @@ let storage = environment.storage;
 export class MongoInsurelistService {
 
   private basePath = '/tmp';
+  recordname: any;
 
   socket:any;  
   observer:Observer<any>;  
@@ -25,32 +29,17 @@ export class MongoInsurelistService {
   insurelists: Observer<Insurelist[]> ; //= null; //  list of objects
   insurelist: Observer<Insurelist> ; // = null; //   single object
 
-/*
-  constructor( ) { 
-  
-  this.socket = io('http://127.0.0.1:8081/calldatabase'); 
-
-  this.socket.on('allTodos', (msg:any) => {
-	alert(msg);	
-  });
-
- var abc = {
-	name:'ramesh'
-  };
-  this.socket.emit('saveTodo', abc);
-	  
-  }
-
-*/
 
 
   
 
   constructor() { 
-  // alert('second');
-      // this.basePath = any ; //tableName;
-      this.socket = io('http://127.0.0.1:8081/calldatabase'); 
-//	  this.insurelists = [];
+    this.socket = io('http://127.0.0.1:8081/calldatabase'); 
+	if(insurerectype == 'single')
+	{
+	  this.recordname = environment.insurancerec.singlerec.insurancelist; 
+	}
+
   }
 
  // http://www.syntaxsuccess.com/viewarticle/socket.io-with-rxjs-in-angular-2.0
@@ -63,8 +52,12 @@ export class MongoInsurelistService {
       // this.observer.complete();
     });
 	
+	var listalldata = {
+		query: query,
+		recordname: this.recordname
+	};
 	    
-    this.socket.emit('listall', query);
+    this.socket.emit('listall', listalldata);
 
 
     return this.createObservable();
@@ -87,7 +80,12 @@ export class MongoInsurelistService {
 
   // Create a bramd new insurelist
   createInsurelist(insurelist: Insurelist): void {
-    this.socket.emit('push', insurelist);
+	  var pushdata = {
+		data: insurelist,
+		recordname: this.recordname
+	};
+	    
+    this.socket.emit('push', pushdata);
   }
 
 
@@ -99,11 +97,13 @@ export class MongoInsurelistService {
   
   getInsurelist(key: string): Observable<Insurelist> {
     var datatoget = {
-	_id : key
+			recordname: this.recordname,
+	id : key
     };
-   this.socket.on('listall', (res) => {
-      this.observer.next(res);
-      // this.observer.complete();
+	
+    this.socket.on('gotdata', (res) => {
+      this.insurelist.next(res);
+    
     });
 
     this.socket.emit('get', datatoget);
@@ -115,9 +115,17 @@ export class MongoInsurelistService {
   // Update an exisiting insurelist
   updateInsurelist(key: string, value: any): void {
     var datatoupdate = {
+	recordname: this.recordname,
 	data: value,
-	_id : key
+	id : key
     };
+	
+	this.socket.on('returndata', (res) => {
+      console.log(res);
+      
+    });
+
+	
     this.socket.emit('update', datatoupdate);
   }
 
@@ -126,14 +134,29 @@ export class MongoInsurelistService {
   // Deletes a single insurelist
   deleteInsurelist(key: string): void {
     var datatodelete = {
-	_id : key
+	recordname: this.recordname,
+	id : key
     };
+	
+	this.socket.on('returndata', (res) => {
+      console.log(res);
+      
+    });
+	
     this.socket.emit('remove', datatodelete);
   }
 
   // Deletes the entire list of insurelist
   deleteAll(): void {
-    this.socket.emit('removeall');
+	var recordtodelete = {
+		recordname: this.recordname
+	
+    };
+	this.socket.on('returndata', (res) => {
+      console.log(res);
+      
+    });	
+    this.socket.emit('removeall', recordtodelete);
   }
 
 

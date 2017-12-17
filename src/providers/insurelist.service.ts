@@ -9,6 +9,7 @@ import { environment } from '../config/environment';
 
 let storage = environment.storage.type;
 
+
 // Core
 
 
@@ -16,12 +17,12 @@ let storage = environment.storage.type;
 @Injectable()
 export class InsurelistService {
 
-  
+
 
   constructor(private fire: FireInsurelistService,
 		 private mongo: MongoInsurelistService 
 ) { 
-  
+	
 	  
   }
 
@@ -42,7 +43,7 @@ export class InsurelistService {
     } else  if(query.type == 'firstbyid') {
       if(storage == 'mongo')
       {
-	  var data = {_id: query.id};
+			var data = {};
           return this.mongo.getInsurelistsList (data);
       }
       else 

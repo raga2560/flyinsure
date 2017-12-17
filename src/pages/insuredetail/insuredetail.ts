@@ -44,16 +44,12 @@ export class InsureDetailPage implements OnInit {
 ngOnInit() {
 	this.policyissued = null;
 	//alert(this.navParams.data.insureId);
-	 var querydata = {
-		type : 'firstbyid',
-		id : this.navParams.data.insureId,
-		data: { limitToFirst: 1, orderByChild: 'invoiceid',
-                equalTo: this.navParams.data.insureId  }
-            };
-	 this.insurelistservice.getInsurelistsList(querydata,
+	 var querydata = this.navParams.data.insureId;
+	 
+	 this.insurelistservice.getInsurelist(querydata,
          ).subscribe(data=> {
-		this.insuredetail = data[0];
-		// alert(JSON.stringify(data));
+		this.insuredetail = data;
+		 alert(JSON.stringify(data));
 	});
 	
 /*    // equalTo: this.navParams.data.invoiceId    */

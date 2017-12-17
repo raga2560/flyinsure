@@ -33,6 +33,18 @@ export const environment = {
 		},
 		insurancedetail: {
 			invoice: true
+		},
+		home: {
+			
+		},
+		userpage :{
+			
+		},
+		tradepanel :{  //dynamic
+			
+		},
+		login: {  //dynamic
+			
 		}
 		
 	},
