@@ -21,7 +21,7 @@ import { AuthService } from '../providers/auth.service';
 import { InsurelistService } from '../providers/insurelist.service';
 import { FireInsurelistService } from '../providers/fireinsurelist';
 import { MongoInsurelistService } from '../providers/mongoinsurelist';
-import { MongoService } from '../providers/mongoservice';
+
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UserData } from '../providers/user-data';
@@ -87,7 +87,7 @@ component: TradePanelPage, name: 'TradePanel', segment: 'tradepanel/:invoiceId'
     SplashScreen,
 	UserData,
 	InsurelistService,
-	MongoService,
+	
 	FireInsurelistService,
 	MongoInsurelistService,
 	AuthService,
