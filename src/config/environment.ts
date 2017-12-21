@@ -9,6 +9,11 @@ export const environment = {
 						messagingSenderId: "60029212930"
 	
     },
+	upload :
+	{
+		type: 'native'  // ngupload  . Native may not work on desktops
+		// Example of native upload https://www.djamware.com/post/599da16580aca768e4d2b130/how-to-upload-file-on-ionic-3-%20using-native-file-transfer-plugin
+	},
 	storage: 
 	{
 		type: 'mongo'  // firebase, mongo, aws

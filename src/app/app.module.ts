@@ -57,13 +57,10 @@ const firebaseConfig = {
 	AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp, {},{
 	links: [
-        { 
-component: InsuranceListPage, name: 'InsuranceList', segment: 'insurancelist',
- component: InsureDetailPage, name: 'InsureDetail', segment: 'insuredetail/:insureId',
-component: UserPage, name: 'UserPage', segment: 'userdata',
-component: TradePanelPage, name: 'TradePanel', segment: 'tradepanel/:invoiceId' 
-
-}
+        {component: InsuranceListPage, name: 'InsuranceList', segment: 'insurancelist'},
+		{component: InsureDetailPage, name: 'InsureDetail', segment: 'insuredetail/:insureId'},
+		{component: UserPage, name: 'UserPage', segment: 'userdata'},
+		{component: TradePanelPage, name: 'TradePanel', segment: 'tradepanel/:invoiceId' 		}
         
       ]
 	}),

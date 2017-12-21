@@ -1,9 +1,5 @@
-import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import { Insurelist } from '../pages/transaction-shared/insurelist';
-import {FireInsurelistService} from './fireinsurelist';
-import {MongoInsurelistService} from './mongoinsurelist';
 
+import {InsurelistService} from './insurelist.service';
 
 import { environment } from '../config/environment';
 
@@ -12,8 +8,24 @@ let storage = environment.storage.type;
 
 // Core
 
+describe('Insurancelist service testing', () => {
+ 
+    it('should do nothing', () => {
+ 
+        expect(false).toBeTruthy();
+ 
+    });
+	
+	it('getlist of insurances', () => {
+ 
+        expect(true).toBeTruthy();
+ 
+    });
+ 
+ 
+});
 
-
+/*
 @Injectable()
 export class InsurelistService {
 
@@ -120,3 +132,4 @@ export class InsurelistService {
 
 
 }
+*/
