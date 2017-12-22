@@ -21,6 +21,11 @@ import { AuthService } from '../providers/auth.service';
 import { InsurelistService } from '../providers/insurelist.service';
 import { FireInsurelistService } from '../providers/fireinsurelist';
 import { MongoInsurelistService } from '../providers/mongoinsurelist';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { Transfer } from '@ionic-native/transfer';
+import { Camera } from '@ionic-native/camera';
+import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 
 
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -46,6 +51,7 @@ const firebaseConfig = {
 	TradePanelPage,
 	InsuranceListPage,
 	InsureDetailPage,
+	FileSelectDirective,
 	UserPage,
 	SignupPage,
     HomePage,
@@ -90,6 +96,12 @@ const firebaseConfig = {
 	AuthService,
 	AngularFireAuth,
 	AngularFireDatabase,
+	FileTransfer,
+	Transfer,
+//  FileUploadOptions,
+//  FileTransferObject,
+  File,
+//  Camera,
 	
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

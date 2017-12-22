@@ -12,7 +12,9 @@ export const environment = {
 	upload :
 	{
 		type: 'native'  // ngupload  . Native may not work on desktops
+		// Standard upload https://ciphertrick.com/2016/10/24/file-upload-with-angular2-nodejs/ 
 		// Example of native upload https://www.djamware.com/post/599da16580aca768e4d2b130/how-to-upload-file-on-ionic-3-%20using-native-file-transfer-plugin
+		// Native download https://github.com/dsgriffin/ionic-3-file-transfer-example/blob/master/src/pages/home/home.ts
 	},
 	storage: 
 	{

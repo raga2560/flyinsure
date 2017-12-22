@@ -92,8 +92,148 @@
 
         </ion-col>
       </ion-row>
+	  
+	  <ion-row padding>
+              <ion-col col-12 >
+			      <ion-item>
+				  Native way
+				  </ion-item>
+    <ion-item>
+    <p>{{imageURI}}</p>
+    <button ion-button color="secondary" (click)="getImage()">Get Image</button>
+  </ion-item>
+  <ion-item>
+    <h4>Image Preview</h4>
+    <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" />
+  </ion-item>
+  <ion-item>
+    <button ion-button (click)="uploadFile()">UploadImage</button>
+  </ion-item>            
+              </ion-col>
+            </ion-row>
+<ion-row padding>
+              <ion-col col-12 >
+			  <ion-item>
+				  Native way download.  (set the image name)
+				  </ion-item>
+		
+<ion-card-content>
+      <img src="assets/img/pug.jpg" alt="Cute Pug">
+      <button ion-button (click)="downloadImage('pug.jpg')" color="secondary">Download image</button>
+      <button ion-button (click)="retrieveImage('pug.jpg')" color="secondary">Retrieve downloaded image</button>
+    </ion-card-content>
+	
+      </ion-col>
+            </ion-row>
+        
+	  <ion-row no-padding>
+              <ion-col col-12 >
+      <ion-item>
+				  General way
+				  </ion-item>
+	    <ion-item>
+	  <div class="form-group">
+   <label for="single">single</label>
+   <input type="file" class="form-control" name="single" ng2FileSelect [uploader]="uploader" />                                  
+</div>
+</ion-item>
+<ion-item>
+	<div class="form-group">
+                                    <label for="multiple">Multiple</label>
+                                    <input type="file" class="form-control" name="multiple" ng2FileSelect [uploader]="uploader" multiple  />
+                                </div>
+			</ion-item>					
+      <ion-item>
+      </ion-item>
+
+              </ion-col>
+            </ion-row>
+
+
+
+<ion-row no-padding>
+              <ion-col col-12 >
+      
+
+                            <h3>File Upload with Angular 2 and Node</h3>
+                            Queue length: {{ uploader?.queue?.length }}
+
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th width="50%">Name</th>
+                                    <th>Size</th>
+                                    <th>Progress</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let item of uploader.queue">
+                                    <td><strong>{{ item.file.name }}</strong></td>
+                                    <td nowrap>{{ item.file.size/1024/1024 | number:'.2' }} MB</td>
+                                    <td>
+                                        <div class="progress" style="margin-bottom: 0;">
+                                            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                                        <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                                        <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                                    </td>
+                                    <td nowrap>
+                                        <button type="button" class="btn btn-success btn-xs"
+                                                (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                                            <span class="glyphicon glyphicon-upload"></span> Upload
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-xs"
+                                                (click)="item.cancel()" [disabled]="!item.isUploading">
+                                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-xs"
+                                                (click)="item.remove()">
+                                            <span class="glyphicon glyphicon-trash"></span> Remove
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+							
+              </ion-col>
+            </ion-row>
+			
+			<ion-row no-padding>
+              <ion-col col-12 >
+
+
+						<div>
+                                <div>
+                                    Queue progress:
+                                    <div class="progress" style="">
+                                        <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-success btn-s"
+                                        (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                                    <span class="glyphicon glyphicon-upload"></span> Upload all
+                                </button>
+                                <button type="button" class="btn btn-warning btn-s"
+                                        (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
+                                    <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+                                </button>
+                                <button type="button" class="btn btn-danger btn-s"
+                                        (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+                                    <span class="glyphicon glyphicon-trash"></span> Remove all
+                                </button>
+                            </div>
+				</ion-col>
+            </ion-row>
+			
+			
     </ion-grid>
 	
 	
+  
   
 </ion-content>
