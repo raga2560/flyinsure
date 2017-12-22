@@ -33,8 +33,18 @@ imageFileName:any;
  storageDirectory: string = '';
   
   // standard uploader
-  public uploader:FileUploader = new FileUploader({url:'http://localhost:3001/upload'});
-	
+  public uploader:FileUploader = new FileUploader({
+		url:'http://localhost:8081/fileupload',
+		allowedFileType: ["pdf"],
+		maxFileSize: 1*1024*1024
+   });
+
+   public imageuploader:FileUploader = new FileUploader({
+		url:'http://localhost:8081/imageupload',
+		allowedFileType: ["image"],
+		maxFileSize: 1*1024*1024
+   });
+   
   insureentry: Insurelist = new Insurelist();
   
 

@@ -16,6 +16,10 @@ export const environment = {
 		// Example of native upload https://www.djamware.com/post/599da16580aca768e4d2b130/how-to-upload-file-on-ionic-3-%20using-native-file-transfer-plugin
 		// Native download https://github.com/dsgriffin/ionic-3-file-transfer-example/blob/master/src/pages/home/home.ts
 	},
+	paytmtype :
+	{
+		type:'server' // apktype
+	},
 	storage: 
 	{
 		type: 'mongo'  // firebase, mongo, aws
