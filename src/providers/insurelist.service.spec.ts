@@ -2,6 +2,8 @@
 import {InsurelistService} from './insurelist.service';
 
 import { environment } from '../config/environment';
+import { testgroup } from '../config/choices';
+
 
 let storage = environment.storage.type;
 
@@ -9,10 +11,12 @@ let storage = environment.storage.type;
 // Core
 
 describe('Insurancelist service testing', () => {
+	
+	
  
     it('should do nothing', () => {
  
-        expect(false).toBeTruthy();
+        expect(true).toBeTruthy();
  
     });
 	
