@@ -23,6 +23,7 @@ module.exports = {
         query: {
           esModules: true
         }
+		
       },
       {
         test: /\.html$/,

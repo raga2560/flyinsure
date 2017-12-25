@@ -66,6 +66,7 @@
     "angular2-template-loader": "^0.6.2",
     "connect": "^3.6.5",
     "html-loader": "^0.4.5",
+	"zone.js": "0.8.18",
     "ionic": "3.16.0",
     "istanbul-instrumenter-loader": "^3.0.0",
     "jasmine": "^2.8.0",

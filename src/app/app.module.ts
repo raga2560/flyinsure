@@ -66,6 +66,8 @@ const firebaseConfig = {
         {component: InsuranceListPage, name: 'InsuranceList', segment: 'insurancelist'},
 		{component: InsureDetailPage, name: 'InsureDetail', segment: 'insuredetail/:insureId'},
 		{component: UserPage, name: 'UserPage', segment: 'userdata'},
+		//{component: HomePage, name: 'HomePage', segment: 'home'},
+		//{component: SignupPage, name: 'SignupPage', segment: 'signup'},
 		{component: TradePanelPage, name: 'TradePanel', segment: 'tradepanel/:invoiceId' 		}
         
       ]
