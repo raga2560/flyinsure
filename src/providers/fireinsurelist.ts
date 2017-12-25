@@ -16,7 +16,7 @@ export class FireInsurelistService {
   
 
   constructor(private db: AngularFireDatabase ) { 
-  alert('second');
+  // alert('second');
 	  this.insurelists = this.db.list('/insurelists', {
       query: {}
     });

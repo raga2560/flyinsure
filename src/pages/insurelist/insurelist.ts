@@ -51,7 +51,7 @@ ngOnInit() {
 	 this.insurelistservice.getInsurelistsList(querydata
          ).subscribe(data=> {
 		this.insuredetail = data[0];
-		 alert(JSON.stringify(data));
+	//	 alert(JSON.stringify(data));
 	});
 	
 /*    // equalTo: this.navParams.data.invoiceId    */
@@ -70,7 +70,7 @@ ngOnInit() {
   }
  goToInsureDetail(insurance: any) {
 	//  alert(JSON.stringify(property));
-	alert('hi');
+//	alert('hi');
     this.navCtrl.push(InsureDetailPage, { insureId: this.getkeyforplatform(insurance)});
   }
   getkeyforplatform(rec:any){

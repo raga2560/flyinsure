@@ -29,7 +29,7 @@ export class InsurelistService {
 
   // Return an observable list with optional query
   // You will usually call this from OnInit in a component
-  getInsurelistsList(query): any {
+  getInsurelistsList(query = {type:'first', data:{}}): any {
     if(query.type == 'first') {
       if(storage == 'mongo')
       {
