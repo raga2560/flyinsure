@@ -1,0 +1,37 @@
+{
+	
+	"insurances": [
+	{
+	"$key": "r2425",
+	"_id": "r2425",
+	"consumerid": "CUSTID1",
+  "validatorid": "VALIDATOR01",
+  "invoiceid": "INV01",
+  "invoiceimage":"imagelink",
+  "invoicedesc":"Truck Insurance1",
+  "billamount": "1000",
+  "insuranceamt": "100",
+  "insurepremium": "10",
+  "insureprovider": "RELI01",
+  "premiumpaid": false,
+  "decision": "pending" 
+  },
+  {
+  "$key": "r2dd425",
+	"_id": "r24dd25",
+	"consumerid": "CUSTID2",
+  "validatorid": "VALIDATOR02",
+  "invoiceid": "INV02",
+  "invoiceimage":"imagelink",
+  "invoicedesc":"Truck Insurance2",
+  "billamount": "1000",
+  "insuranceamt": "100",
+  "insurepremium": "10",
+  "insureprovider": "RELI01",
+  "premiumpaid": false,
+  "decision": "pending" 
+  }
+  
+	]
+
+}

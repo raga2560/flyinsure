@@ -27,7 +27,7 @@ export class TradePanelPage implements OnInit {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-	public auth: AuthService,
+//	public auth: AuthService,
 	public insurelistservice: InsurelistService
   ) {
 	  
@@ -46,7 +46,7 @@ ngOnInit() {
 	 this.insurelistservice.getInsurelistsList(querydata,
          ).subscribe(data=> {
 		this.insuredetail = data[0];
-		 alert(JSON.stringify(data));
+		// alert(JSON.stringify(data));
 	});
 	
 /*    // equalTo: this.navParams.data.invoiceId    */

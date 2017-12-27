@@ -1,8 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Insurance on Fly
-    </ion-title>
+    <ion-title id="hometitle">Ionic Blank</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -61,7 +59,7 @@
 				  <ion-input  placeholder="Invoice id" [(ngModel)]="insureentry.invoiceid"> </ion-input>  
 			</ion-item>
 			
-			<button ion-button block (click)="createInsureEntry()" > Create Insurance Entry(testing)</button >        
+			<button ion-button block (click)="createInsureEntry()" id="createinsure">Create Insurance Entry</button >        
 			<button ion-button block (click)="capture()">Take picture of invoice</button>
         <button ion-button block (click)="UpdateInsureEntry()" >Get quote of Insurance</button>        
               </ion-list>

@@ -31,6 +31,7 @@ import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UserData } from '../providers/user-data';
 import { AngularFireAuth } from 'angularfire2/auth';
+import {HttpModule} from '@angular/http';
 
 
 const firebaseConfig = {
@@ -59,7 +60,7 @@ const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
-	
+	HttpModule,
 	AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp, {},{
 	links: [
@@ -103,7 +104,7 @@ const firebaseConfig = {
 //  FileUploadOptions,
 //  FileTransferObject,
   File,
-//  Camera,
+  Camera,
 	
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

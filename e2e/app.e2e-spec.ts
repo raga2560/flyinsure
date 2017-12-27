@@ -1,42 +1,35 @@
-import { Page } from './app.po';
-import { async, fakeAsync, tick } from '@angular/core/testing';
+import { browser, element, by, ElementFinder } from 'protractor';
 
-
-
-describe('App', () => {
-  let page: Page;
+describe('Example E2E Test', () => {
 
   beforeEach(() => {
-    page = new Page();
+    browser.get('');
   });
 
-   describe('default screen', () => {
-    beforeEach(() => {
-      page.navigateTo('/#/about/insurancelist');
-    });
+  it('the home tab is displayed by default', () => {
 
-	it('should have a title saying Page One', async(() => {
-   //service.someAsyncTask();
-   page.getTitle().then(title => {
-		  
-        expect(title).toEqual('Insurance list');
-      }); 
-	  
-   //tick();
-   //expect(...)
-})); 
+  // expect(element(by.css('[aria-selected=true] .tab-button-text')) // Grab the title of the selected tab  
+       expect(element(by.id('hometitle')) // Grab the title of the selected tab 
+        .getAttribute('innerHTML')) // Get the text content
+        .toContain('Ionic Blank'); // Check if it contains the text "Home"
 
-  /*
-  describe('default screen', () => {
-    beforeEach(() => {
-      page.navigateTo('/');
-    });
+  });
 
-    it('should have a title saying Page One', () => {
-      page.getTitle().then(title => {
-		  console.log(title);
-        expect(title).toEqual('Page One');
-      });
-    }); */
-  })
+  it('the user can browse to the contact tab and view the ionic twitter handle', () => {
+
+    // Click the 'About' tab
+    let btn = element(by.buttonText('Create Insurance Entry'));
+
+	btn.click();
+      // Wait for the page transition
+      browser.driver.sleep(5000);
+
+      expect(element(by.id('tradepanel1')) // Grab the label of the list item
+        .getAttribute('innerHTML')) // Get the text content
+        .toContain('Insurance Trade Panel'); // Check if it contains the text "@ionicframework"
+
+    
+
+  }); 
+
 });

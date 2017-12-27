@@ -3,11 +3,6 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 import { Insurelist } from '../pages/transaction-shared/insurelist';
 import {FireInsurelistService} from './fireinsurelist';
 import {MongoInsurelistService} from './mongoinsurelist';
-import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/map';
-
 
 
 import { environment } from '../config/environment';
@@ -22,35 +17,20 @@ let storage = environment.storage.type;
 @Injectable()
 export class InsurelistService {
 
-insurances: any;
 
-  constructor(
-  //private fire: FireInsurelistService,
-//		 private mongo: MongoInsurelistService 
-public http: Http
+
+  constructor(private fire: FireInsurelistService,
+		 private mongo: MongoInsurelistService 
 ) { 
 	
 	  
   }
 
-  load(){
-
-  		//return this.http.get('assets/data/insurance.json').map(res => res.json());
-/*		this.http.get('assets/data/insurance.json').map(res => res.json()).subscribe(data => {
-			this.insurances = data.insurances;
-		});
-*/
-	}
-
 
   // Return an observable list with optional query
   // You will usually call this from OnInit in a component
   getInsurelistsList(query = {type:'first', data:{}}): any {
-	  return this.http.get('assets/data/insurance.json').map(res => res.json());
-	  /*.subscribe(data => {
-			this.insurances = data.insurances;
-		});;
-    /*if(query.type == 'first') {
+    if(query.type == 'first') {
       if(storage == 'mongo')
       {
 	  var data = {};
@@ -70,14 +50,11 @@ public http: Http
       {
            return this.fire.getInsurelistsList (query.data);
       }
-    } */
+    }
   }
   
   getInsurelist(key): any {
-	  //return Observable.of(this.insurances[0]);
-	  return this.http.get('assets/data/insurance.json').map(res => res[0].json());
-	  
-/*      if(storage == 'mongo')
+      if(storage == 'mongo')
       {
          return this.mongo.getInsurelist (key);
       }
@@ -85,23 +62,21 @@ public http: Http
       {
          return this.fire.getInsurelist (key);
       }
-	  */
   }
-  
   
   createInsurelist(passeddata ): any {
     if(passeddata.type == 'simple')
     {
       if(storage == 'mongo')
       {
-    //     return this.mongo.createInsurelist (passeddata.data);
+         return this.mongo.createInsurelist (passeddata.data);
       }
       else 
       {
-      //   return this.fire.createInsurelist (passeddata.data);
+         return this.fire.createInsurelist (passeddata.data);
       }
     }
-  }/*
+  }
    updateInsurelist(key, passeddata): any {
     if(passeddata.type == 'simple')
     {  
@@ -136,7 +111,7 @@ public http: Http
         return this.fire.deleteAll ();
       }
   }
-  */
+  
 
   // Default error handling for all actions
   private handleError(error:any) {

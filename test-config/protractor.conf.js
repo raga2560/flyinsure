@@ -28,6 +28,7 @@ exports.config = {
   },
   onPrepare: function() {
 	  require("zone.js/dist/zone-node");
+	  
     jasmine.getEnv().addReporter(new SpecReporter());
   }
 };
